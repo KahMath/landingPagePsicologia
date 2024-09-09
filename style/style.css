@@ -104,7 +104,7 @@ td{
     padding-left: 20px;
 }
 td::before{
-    content: '\1f6c8';
+    content: '🛈';
     color: royalblue;
     font-size: 20pt;
 }
