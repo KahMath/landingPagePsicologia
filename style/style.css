@@ -281,7 +281,7 @@ td:hover + div > p{
 }
 
 .testemunhoUnilitario {
-    flex: 1 1 30%;
+    flex: 1 1 35%;
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
@@ -324,6 +324,11 @@ td:hover + div > p{
 }
 .entrada input:hover{
     border-bottom: 3px solid rgb(110, 142, 237);
+}
+.entrada input:focus{
+    box-shadow: 0 0 0 0;
+    border: 3px solid royalblue;
+    outline: 0;
 }
 input:invalid{
     color: gray;
@@ -388,10 +393,9 @@ a:hover{
         flex-direction: column;
     }
 }
-@media (max-width: 915px){
-    #direita{
-        display: flex;
-        flex-direction: column;
+@media (max-width:1040px){
+    .testemunhoUnilitario{
+        flex: 1 1 30%;
     }
 }
 @media (max-width: 968px){
@@ -405,13 +409,11 @@ a:hover{
         min-height: 75px;
     }
 }
-@media (max-width: 707px){
-    /* nav a{
-        display: none;
+@media (max-width: 915px){
+    #direita{
+        display: flex;
+        flex-direction: column;
     }
-    button, button img{
-        display: block;
-    } */
 }
 @media (max-width:875px){
     #grande{
@@ -420,6 +422,14 @@ a:hover{
     #pequeno{
         display: block;
     }
+}
+@media (max-width: 707px){
+    /* nav a{
+        display: none;
+    }
+    button, button img{
+        display: block;
+    } */
 }
 @media (max-width:704px){
     #unidades{
