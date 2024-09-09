@@ -379,7 +379,9 @@ a:hover{
 #unidades{
     display: flex;
 }
-
+#pequeno{
+    display: none;
+}
 @media (max-width: 1156px){
     #inicio{
         display: flex;
