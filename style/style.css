@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: "Ubuntu", sans-serif;
+    scroll-behavior: smooth;
 }
 
 body{
@@ -46,6 +47,10 @@ nav a:hover{
     color: rgb(110, 142, 237);
 }
 
+article:target, section:target {
+    margin-right: 0.25em;
+}
+
 button img{
     display: none;
     width: 70px;
@@ -65,12 +70,12 @@ button:hover{
 main{
     padding: 70px 50px;
 }
-#inicio p{
+#inicioDiv p{
     text-align: justify;
     text-indent: 15pt;
     padding: 0px 30px;
 }
-article #inicio{
+article #inicioDiv{
     display: flex;
     align-items: center;
 }
@@ -94,7 +99,7 @@ section{
     padding-top: 20px;
 }
 
-#servicos{
+#servicosDiv{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -110,7 +115,7 @@ h4{
     font-weight: 500;
     width: 476px;
 }
-#servicos h4::before{
+#servicosDiv h4::before{
     content: '🛈';
     color: royalblue;
     font-size: 20pt;
@@ -363,7 +368,7 @@ h4{
     padding: 15px;
     border: 3px solid royalblue;
 }
-#testemunhos img{
+#testemunhosDiv img{
     height: 100px;
     padding: 0 20px;
 }
@@ -494,7 +499,10 @@ input:not(:placeholder-shown) + .label, textarea:not(:placeholder-shown) + .labe
     flex-direction: column;
     justify-content: center;
 }
-#unidades{
+p a{
+    color: #023373;
+}
+#unidadesDiv{
     display: flex;
 }
 #grande{
@@ -521,7 +529,7 @@ footer a:hover{
     color: rgb(110, 142, 237);
 }
 @media (max-width: 1156px){
-    #inicio{
+    #inicioDiv{
         display: flex;
         flex-direction: column;
     }
@@ -539,7 +547,7 @@ footer a:hover{
     .entrada{
         display: block;
     }
-    #testemunhos{
+    #testemunhosDiv{
         display: block;
     }
     .testemunhoUnidade p{
@@ -568,5 +576,53 @@ footer a:hover{
 @media (max-width: 738px) {
     #entrada input, #entrada textarea{
     width: 250px;
+    }
+}
+@media (max-width: 707px){
+    /* nav a{
+        display: none;
+    }
+    button, button img{
+        display: block;
+    } */
+}
+@media (max-width:704px){
+    #unidadesDiv{
+        display: block;
+    }
+    .nome img{
+        width: 100%;
+        height: 100%;
+    }
+    .logo img{
+        height: 60px;
+        width: auto;
+    }
+    .nome img{
+        height: 60px;
+        width: auto;
+    }
+    #social img{
+        width: 20px;
+        height: auto;
+    }
+}
+@media (max-width: 585px){
+    .logo img{
+        height: 40px;
+        width: auto;
+    }
+    .nome img{
+        height: 40px;
+        width: auto;
+    }
+    #social img{
+        width: 15px;
+        height: auto;
+    }
+}
+@media (max-width: 480px) {
+    .item {
+        width: 50px;
     }
 }
