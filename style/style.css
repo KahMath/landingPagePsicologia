@@ -92,24 +92,61 @@ h2{
     padding-bottom: 15px;
 }
 section{
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
-table{
+#servicos{
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
-td{
+#infoUnidade{
     width: 50%;
     font-size: 17pt;
     padding-left: 20px;
+    position: relative;
 }
-td::before{
+h4{
+    font-weight: 500;
+    width: 476px;
+}
+#servicos h4::before{
     content: '🛈';
     color: royalblue;
     font-size: 20pt;
+    padding: 10px;
 }
-td:hover + div > p{
-    display: block;
+.explicacao{
+    font-size: 13pt;
+    text-align: justify;
+    position: absolute;
+    top: 0;
+    color: #023373;
+    background-color: rgb(165, 183, 238);
+    padding: 10px;
+    opacity: 0;
+    transition: 0.25s ease-out;
+    width: 760px;
+    pointer-events: none;
+}
+#infoEsquerda .explicacao{
+    left: 0;
+}
+#infoDireita .explicacao{
+    left: -350px;
+}
+#infoEsquerda h4:hover + .explicacao{
+    top: 5px;
+    left: 270px;
+    opacity: 1;
+    z-index: 1;
+}
+#infoDireita h4:hover + .explicacao{
+    top: 5px;
+    left: -755px;
+    opacity: 1;
+    z-index: 1;
 }
 
 #slider {
@@ -250,48 +287,76 @@ td:hover + div > p{
     height: 300px;
 }
 
-#noticias {
+.list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    list-style-type: none;
+    margin: 30px;
+}
+
+.list:hover :not(:hover) {
+    margin: 0 -20px;
+    transform: perspective(500px) rotateY(45deg) scale(0.95);
+    opacity: 0.6;
+}
+
+.item {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 3/4;
+    border-radius: 13px;
+    background-size: cover;
+    background-position: center;
+    transition: margin 0.5s ease-in-out, transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.item:nth-of-type(1) { background-image: url("./noticia1.png"); }
+.item:nth-of-type(2) { background-image: url("./noticia2.png"); }
+.item:nth-of-type(3) { background-image: url("./noticia3.png"); }
+.item:nth-of-type(4) { background-image: url("./noticia4.png"); }
+
+
+.item:hover ~ .item {
+    transform: perspective(500px) rotateY(-45deg) scale(0.95);
+}
+
+.item:hover {
+    transform: perspective(500px) rotateY(0) scale(1.2);
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    aspect-ratio: inherit;
+    border-radius: inherit;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .item {
+      width: 150px;
+    }
+}
+
+.testemunho{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 100%;
-    margin: 0 auto;
 }
-
-.noticia {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-    padding: 20px 10px;
-    background-color: #A0D3F2;
-    flex-basis: 23%;
-    box-sizing: border-box;
-}
-
-.noticia img{
-    margin-bottom: 10px;
-    width: 100%;
-}
-.noticia p{
-    text-align: justify;
-    margin-top: 20px;
-}
-
-#testemunhos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.testemunhoUnilitario {
+.testemunhoUnidade {
     flex: 1 1 35%;
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
 }
 
-.testemunhoUnilitario p {
-    min-height: 150px;
+.testemunhoUnidade p {
     max-height: auto;
     overflow: hidden;
     text-align: justify;
@@ -299,45 +364,57 @@ td:hover + div > p{
     padding: 15px;
     border: 3px solid royalblue;
 }
-
 #testemunhos img{
     height: 100px;
     padding: 0 20px;
 }
 
-.entrada{
-    padding: 45px 60px;
+#formulario{
+    background-color: white;
+    padding: 20px;
+}
+#entrada{
+    padding: 15px 0px;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-#mensagem{
-    height: 200px;
-    border: 3px solid royalblue;
-}
-.entrada input{
-    font-size: 15pt;
-    padding: 5px;
-    margin: 5px;
-    min-width: 400px;
-    background: transparent;
+#entrada input{
     border: 0px;
     border-bottom: 3px solid royalblue;
+}
+#entrada input, #entrada textarea{
+    font-size: 17pt;
+    padding: 7px;
+    margin: 10px;
+    width: 550px;
+    background: transparent;
     color: royalblue;
 }
-.entrada input:hover{
+#entrada input:hover{
     border-bottom: 3px solid rgb(110, 142, 237);
 }
-.entrada input:focus{
+#entrada textarea:hover{
+    border: 3px solid rgb(110, 142, 237);
+}
+#entrada input, #entrada textarea{
     box-shadow: 0 0 0 0;
-    border: 3px solid royalblue;
     outline: 0;
+}
+textarea{
+    height: 86.5px;
+    resize: none;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    vertical-align: top;
+    border: 3px solid royalblue;
 }
 input:invalid{
     color: gray;
 }
 .erro {
-    font-size: 10pt;
+    font-size: 15pt;
     color: white;
     background-color: royalblue;
     display: block;
@@ -346,40 +423,87 @@ input:invalid{
 .erro.ativo {
     padding: 4px;
 }
-#botao{
-    color: gray;
-    font-size: 10pt;
-    border: 0px;
-    margin: 0px;
-    width: auto;
-}
-#botao:hover{
-    cursor: pointer;
-    color: white;
-}
-form p{
-    color: white;
-    font-size: 10pt;
-    padding: 2px 5px;
-}
-.entrega input{
-    font-size: 20pt;
-    padding: 10px 30px;
-    margin: 20px;
+#entrega {
+    position: relative;
     background-color: royalblue;
-    border: 0px;
-    color: white;
-    font-weight: 600;
+    display: inline-block;
+    overflow: hidden;
+    border: 3px solid royalblue;
 }
-.entrega input:hover{
+#entrega input, #entrega textarea{
+    padding: 0px 10px;
+    margin: 15px;
+    border: 0px;
+    font-weight: 500;
+    font-size: 15pt;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    position: relative;
+    transition: color 0.3s;
+}
+#entrega::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: transform 0.3s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+#entrega:hover::before{
+    transform: scaleX(1);
+    transform-origin: left;
+    color: royalblue;
+}
+#entrega:hover input{
+    color: royalblue;
     cursor: pointer;
-    background-color: rgb(95, 131, 241);
+}
+.input:focus::placeholder, textarea:focus::placeholder {
+    opacity: 0;
+}
+.inputUnidade{
+    position: relative;
+}
+.label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: royalblue;
+    opacity: 0;
+    z-index: -1;
+    transition: 0.25s ease-out;
+}
+input:focus + .label, textarea:focus + .label {
+    top: -11px;
+    opacity: 1;
+    z-index: 1;
+}
+input:not(:placeholder-shown) + .label, textarea:not(:placeholder-shown) + .label{
+    top: -11px;
+    opacity: 1;
+    z-index: 1;
 }
 
+#informacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 #unidades{
     display: flex;
 }
+#grande{
+    border: 4px solid royalblue;
+    margin: 0 15px;
+}
 #pequeno{
+    border: 4px solid royalblue;
     display: none;
 }
 
@@ -408,7 +532,7 @@ footer a:hover{
     }
 }
 @media (max-width:1040px){
-    .testemunhoUnilitario{
+    .testemunhoUnidade{
         flex: 1 1 30%;
     }
 }
@@ -419,7 +543,7 @@ footer a:hover{
     #testemunhos{
         display: block;
     }
-    .testemunhoUnilitario p{
+    .testemunhoUnidade p{
         min-height: 75px;
     }
 }
@@ -429,7 +553,7 @@ footer a:hover{
         flex-direction: column;
     }
 }
-@media (max-width:875px){
+@media (max-width: 911px){
     #grande{
         display: none;
     }
@@ -455,5 +579,21 @@ footer a:hover{
     .nome img{
         width: 100%;
         height: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .item {
+        width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 50px;
+    }
+}
+@media (max-width: 738px) {
+    #entrada input, #entrada textarea{
+    width: 250px;
     }
 }
