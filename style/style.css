@@ -18,11 +18,17 @@ header{
     background-color: white;
     padding: 20px;
 }
-header #topo{
+#topo{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+}
+.logo img, .nome img{
+    height: 70px;
+}
+#social img{
+    height: 30px;
 }
 nav{
     display: flex;
@@ -56,13 +62,6 @@ button:hover{
     cursor: pointer;
     background-color: hsla(0, 0%, 100%, 0.355);
 }
-.logo img{
-    height: 70px;
-}
-#social img, #social a{
-    height: 30px;
-}
-
 main{
     padding: 70px 50px;
 }
@@ -561,35 +560,9 @@ footer a:hover{
         display: block;
     }
 }
-@media (max-width: 707px){
-    /* nav a{
-        display: none;
-    }
-    button, button img{
-        display: block;
-    } */
-}
-@media (max-width:704px){
-    #unidades{
-        display: block;
-    }
-        header #topo{
-        display: block;
-    }
-    .nome img{
-        width: 100%;
-        height: 100%;
-    }
-}
 @media (max-width: 768px) {
     .item {
         width: 100px;
-    }
-}
-
-@media (max-width: 480px) {
-    .item {
-        width: 50px;
     }
 }
 @media (max-width: 738px) {
